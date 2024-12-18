@@ -1,0 +1,1529 @@
+@media (max-width: 480px) {
+  .Header {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+  .main-container {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .Header {
+    width: 90%;
+  }
+}
+
+
+.main{
+    font-family: Rubik;
+}
+.kondmain{
+  font-family: Rubik;
+}
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.main-container {
+  overflow: hidden;
+}
+
+.main-container,
+.main-container * {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+body {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #292b2c;
+  background-color: #fff;
+} 
+
+/* свойства модального окна по умолчанию */
+.modal {
+  position: fixed; /* фиксированное положение */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5); /* цвет фона */
+  z-index: 1050;
+  opacity: 0; /* по умолчанию модальное окно прозрачно */
+  -webkit-transition: opacity 200ms ease-in; 
+  -moz-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in; /* анимация перехода */
+  pointer-events: none; /* элемент невидим для событий мыши */
+  margin: 0;
+  padding: 0;
+}
+/* при отображении модального окно */
+.modal:target {
+  opacity: 1; /* делаем окно видимым */
+  pointer-events: auto; /* элемент видим для событий мыши */
+  overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+.modal-dialog {
+    max-width: 500px;
+    margin: 30px auto; /* для отображения модального окна по центру */
+}
+/* свойства для блока, содержащего контент модального окна */ 
+.modal-content {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: 0;
+}
+
+.modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+/* свойства для заголовка модального окна */
+.modal-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #eceeef;
+}
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+/* свойства для кнопки "Закрыть" */
+.close {
+  float: right;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  text-decoration: none;
+}
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .75;
+}
+/* свойства для блока, содержащего основное содержимое окна */
+.modal-body {
+position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 15px;
+  overflow: auto;
+}
+
+.underline-one {
+	color: #00bfff; /* Цвет обычной ссылки */
+    position: relative;
+    cursor: pointer;
+    text-decoration: none; /* Убираем подчеркивание */
+}
+.underline-one:after {
+	content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px; /* Высота линии */
+    background-color: #0004FC; /* Цвет подчеркивания при исчезании линии*/
+    transition: width 0.5s; /* Время эффекта */
+}
+.underline-one:hover:after {
+	content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px; /* Высота линии */
+    background-color: #0004FC; /* Цвет подчеркивания при появлении линии*/
+    transition: width 0.5s;  /* Время эффекта */
+}
+
+.Header{
+    position: relative;
+    margin: 0 auto;
+    width: 1515px;
+    display: flex;
+    height: 44px;
+    align-items: center;
+    margin-top: 20px;
+}
+.midinfo{
+    font-size: 16;
+    color: #5E5A5A;
+    margin-left: 46px;
+}
+.Abit{
+    font-size: 16;
+    color: #5E5A5A;
+    margin-left: 327px;
+}
+.sved{
+    font-size: 16;
+    color: #5E5A5A;
+    margin-left: 40px;
+}
+  
+  a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+    margin-left: 40px;
+    transition: 0.6s;
+  }
+  
+  a:link {
+    color: #5E5A5A;
+  }
+  a:hover { text-shadow: 0 0 5px #0004FC; }
+  
+  a:focus {
+    border-bottom: 1px solid;
+    background: #fc4c00;
+  }
+  
+  a:visited {
+    color: #5E5A5A;
+  }
+
+  p.change-text{
+    color: #f66d52; /* Цвет текста */
+    font-size: 2em; /* Размер текста */
+    font-weight: bold;
+    padding: 20px 0px;
+    text-transform: uppercase;
+    line-height: 1;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease; 
+  }
+  p.change-text:hover{
+    color: #5265f6; /* Меняем цвет текста */
+  }
+  
+.number{
+    font-size: 16;
+    color: #5E5A5A;
+    margin-left: 40px;
+
+}
+.kondmain { 
+  display: inline-block;
+  position: relative;
+    width: 1580px;
+    height: 582px;
+    margin-left: 170px;
+    margin-top: 20px;
+    border-radius: 30px;
+    background-color: #D8DEFF;
+  }
+
+  .main-container {
+    position: relative;
+    width: 1580px;
+    height: 613px;
+    margin: 0 auto;
+  }
+  .tashqaridagisi {
+    position: absolute;
+    width: 570px;
+    height: 580px;
+    top: 0;
+    left: 912px;
+    background: url(https://static.tildacdn.com/tild6165-6166-4562-b131-303963656565/alisa.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 23;
+  }
+  .flex-row-ae {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 141px;
+    height: 22px;
+    margin: 54px 0 0 67px;
+    z-index: 9;
+  }
+  .o-nas {
+    flex-shrink: 0;
+    position: relative;
+    height: 22px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 8;
+  }
+  .kontakty {
+    flex-shrink: 0;
+    position: relative;
+    height: 22px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 9;
+  }
+  .flex-row-bd {
+    position: relative;
+    width: 427.419px;
+    height: 314.828px;
+    margin: 81.172px 0 0 88.581px;
+    z-index: 22;
+  }
+  .balls {
+    position: absolute;
+    width: 48.97%;
+    height: 57.23%;
+    top: 0;
+    left: 0;
+    background: url(./assets/images/9617160d-f78f-40a7-8a44-90edc2bba842.png)
+      no-repeat center;
+    background-size: 100% 100%;
+    z-index: 22;
+  }
+  .ellipse {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 14.828px;
+    left: 127.419px;
+    background: url(./assets/images/be116c5a-2cba-443b-af30-1511e37ee923.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 17;
+    border-radius: 50%;
+  }
+  .rectangle {
+    position: absolute;
+    width: 1580px;
+    height: 582px;
+    top: 31px;
+    left: 0;
+    background: url(./assets/images/a2945b82-cd27-48e3-b99c-a7878f1214ef.png)
+      no-repeat center;
+    background-size: cover;
+  }
+  .bachelor-degree {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 22px;
+    top: calc(50% - 253.5px);
+    left: 430px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 3;
+  }
+  .how-to-apply {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 22px;
+    top: calc(50% - 252.5px);
+    left: 843px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 7;
+  }
+  .cost {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 22px;
+    top: calc(50% - 252.5px);
+    left: 736px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 6;
+  }
+  .college {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 22px;
+    top: calc(50% - 252.5px);
+    left: 554px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 4;
+  }
+  .distance-learning {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 22px;
+    top: calc(50% - 252.5px);
+    left: 647px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 5;
+  }
+  .pic {
+    position: absolute;
+    width: 23px;
+    height: 21px;
+    top: 59px;
+    left: 57px;
+    background: url(./assets/images/f71a21e2-2686-411a-9df0-d8ce7be90236.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .departments {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 22px;
+    top: calc(50% - 206.5px);
+    left: 147px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    text-decoration: underline;
+    white-space: nowrap;
+    z-index: 12;
+  }
+  .main-1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 22px;
+    top: calc(50% - 206.5px);
+    left: 57px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    text-decoration: underline;
+    white-space: nowrap;
+    z-index: 11;
+  }
+  .mathematics-informatics {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 22px;
+    top: calc(50% - 205.5px);
+    left: 243px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 13;
+  }
+  .vector {
+    position: absolute;
+    width: 9.415px;
+    height: 16px;
+    top: 104px;
+    left: 126px;
+    background: url(./assets/images/d045746e-0191-4ff8-8aae-802eac1fc4db.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 14;
+  }
+  .vector-2 {
+    position: absolute;
+    width: 9.415px;
+    height: 16px;
+    top: 104px;
+    left: 225px;
+    background: url(./assets/images/df4123e8-8a6d-431c-aa29-4899aef0445f.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 16;
+  }
+  .math-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    width: 389px;
+    height: 100px;
+    top: calc(50% - 132.5px);
+    left: 66px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 50.4px;
+    text-align: left;
+    z-index: 15;
+  }
+  .info-math {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    width: 441px;
+    height: 110px;
+    top: calc(50% - 26.5px);
+    left: 64px;
+    color: #5d5959;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    text-align: left;
+    z-index: 24;
+  }
+  .rectangle-3 {
+    position: absolute;
+    width: 180px;
+    height: 33px;
+    top: 520px;
+    left: 72px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #000000;
+    z-index: 18;
+    border-radius: 90px;
+  }
+  .institute1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 34px;
+    top: -2px;
+    left: 35px;
+    color: #000000;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 33.6px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 19;
+  }
+  .rectangle-button {
+    position: absolute;
+    width: 180px;
+    height: 33px;
+    top: 520px;
+    left: 261px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #000000;
+    z-index: 20;
+    border-radius: 90px;
+  }
+  .college-span {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 34px;
+    top: 0px;
+    left: 35px;
+    color: #000000;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 33.6px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 21;
+  }
+  .kondakov {
+    position: relative;
+    width: 1580px;
+    height: 582px;
+    margin: 0 auto;
+    font-size: 0px;
+  }
+  .head-of-department-1 {
+    display: block;
+    position: relative;
+    height: 50px;
+    margin: 0 0 0 31px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 50px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .head-of-department-square {
+    position: relative;
+    width: 1580px;
+    height: 584px;
+    margin: 69px 0 0 0;
+    background: #d8deff;
+    z-index: 1;
+    border-radius: 30px;
+  }
+  .b {
+    position: absolute;
+    width: 636px;
+    height: 584px;
+    top: 0;
+    left: 0;
+    background: url(https://portal.midis.info/upload/resize_cache/main/e8e/512_512_1/b-348.jpg)
+      no-repeat center;
+    background-size: cover;
+    z-index: 2;
+    border-radius: 30px;
+  }
+  .flex-column-bf {
+    position: absolute;
+    width: 536px;
+    height: 418px;
+    top: 72px;
+    left: 968px;
+    font-size: 0px;
+    z-index: 6;
+  }
+  .sergey-kondakov {
+    display: block;
+    position: relative;
+    height: 98px;
+    margin: 0 0 0 3px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 67.2px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 6;
+  }
+  .math-info-dept {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    width: 535px;
+    height: 95px;
+    margin: 58px 0 0 0;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 44.8px;
+    text-align: left;
+    text-overflow: initial;
+    z-index: 5;
+    overflow: hidden;
+  }
+  .rectangle-4 {
+    position: relative;
+    width: 420px;
+    height: 84px;
+    margin: 83px 0 0 3px;
+    cursor: pointer;
+    background: #0004fc;
+    border: none;
+    z-index: 3;
+    border-radius: 15px;
+  }
+  .detailed-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 45px;
+    top: 19px;
+    left: 13px;
+    color: #ffffff;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 44.8px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 4;
+  }
+  .prepodi {
+    top: 250px;
+    position: relative;
+    width: 1453px;
+    height: 1147px;
+    margin: 0 auto;
+    font-size: 0px;
+  }
+  .teacher-staff-1 {
+    display: block;
+    position: relative;
+    height: 50px;
+    bottom: 50px;
+    margin: 0 0 0 0;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 50px;
+    text-align: left;
+    z-index: 12;
+  }
+  .flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 1361px;
+    height: 401px;
+    margin: 69px 0 0 65px;
+    z-index: 11;
+  }
+  .img {
+    flex-shrink: 0;
+    position: relative;
+    width: 266px;
+    height: 401px;
+    background: url(https://portal.midis.info/upload/resize_cache/main/f81/512_512_1/IMG_3674.JPG)
+      no-repeat center;
+    background-size: cover;
+    z-index: 6;
+    border-radius: 10px;
+  }
+  .wp {
+    flex-shrink: 0;
+    position: relative;
+    width: 266px;
+    height: 401px;
+    background: url(https://portal.midis.info/upload/resize_cache/main/129/512_512_1/WP_20141224_003.jpg)
+      no-repeat center;
+    background-size: cover;
+    z-index: 8;
+    border-radius: 10px;
+  }
+  .pict {
+    flex-shrink: 0;
+    position: relative;
+    width: 266px;
+    height: 401px;
+    background: url(https://portal.midis.info/upload/resize_cache/main/467/512_512_1/PICT0020.jpg)
+      no-repeat center;
+    background-size: cover;
+    z-index: 1;
+    border-radius: 10px;
+  }
+  .p-ash-pp-tn {
+    flex-shrink: 0;
+    position: relative;
+    width: 266px;
+    height: 401px;
+    background: url(https://portal.midis.info/upload/main/96b/p265_ash_2664_pp_tn.jpg)
+      no-repeat center;
+    background-size: cover;
+    z-index: 11;
+    border-radius: 10px;
+  }
+  .flex-row-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 1368px;
+    height: 49px;
+    margin: 0 0 0 64px;
+    z-index: 10;
+  }
+  .ivinskaia-nl {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 267px;
+    height: 49px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 49px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 5;
+  }
+  .pisarenko-iv {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 267px;
+    height: 49px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 49px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 7;
+  }
+  .zavyalov-og {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 267px;
+    height: 49px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 49px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 9;
+  }
+  .prilepina-ev {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 267px;
+    height: 49px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 49px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  .flex-row-aba {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 1416px;
+    height: 401px;
+    margin: 128px 0 0 37px;
+    z-index: 16;
+  }
+  .frame1 {
+    flex-shrink: 0;
+    position: relative;
+    width: 321px;
+    height: 401px;
+    background: url(https://midis.ru/upload/resize_cache/webp/iblock/9b3/v0ij91sxlugh3hc0f6bbh1e087g3hszf/Frame-751-_5_.webp)
+      no-repeat center;
+    background-size: cover;
+    z-index: 10;
+  }
+  .frame {
+    flex-shrink: 0;
+    position: relative;
+    width: 321px;
+    height: 401px;
+    background: url(https://midis.ru/upload/resize_cache/webp/iblock/9b3/v0ij91sxlugh3hc0f6bbh1e087g3hszf/Frame-751-_5_.webp)
+      no-repeat center;
+    background-size: cover;
+    z-index: 13;
+  }
+  .frame-3 {
+    flex-shrink: 0;
+    position: relative;
+    width: 321px;
+    height: 401px;
+    background: url(https://midis.ru/upload/resize_cache/webp/iblock/193/sq6bv5wvn3l9dkm7pp8yxvsuij8cjz8q/Frame-752-_5_.webp)
+      no-repeat center;
+    background-size: cover;
+    z-index: 14;
+  }
+  .frame-4 {
+    flex-shrink: 0;
+    position: relative;
+    width: 321px;
+    height: 401px;
+    background: url(https://midis.ru/upload/resize_cache/webp/iblock/c5f/b372i2u80iwr6z2yhvztbwkq8h7dudol/Frame-753-_5_.webp)
+      no-repeat center;
+    background-size: cover;
+    z-index: 15;
+  }
+  .frame-5 {
+    flex-shrink: 0;
+    position: relative;
+    width: 321px;
+    height: 401px;
+    background: url(https://midis.ru/upload/resize_cache/webp/iblock/bdf/93aoy3qgn5csr0oiof0sdu4rljjfs68f/Frame-754-_5_.webp)
+      no-repeat center;
+    background-size: cover;
+    z-index: 16;
+  }
+  .flex-row-6 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 1365px;
+    height: 49px;
+    margin: 0 0 0 64px;
+    z-index: 4;
+  }
+  .sergei-chebotarev {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 267px;
+    height: 49px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 49px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .larisa-ovsyanitskaya {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 267px;
+    height: 49px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 49px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 3;
+  }
+  .yulia-mukhina {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 267px;
+    height: 49px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 49px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 4;
+  }
+  .liliya-hayatova {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 267px;
+    height: 49px;
+    color: #303030;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 49px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 2;
+  }
+  .go {
+    position: relative;
+    width: 1326px;
+    height: 408px;
+    margin: 0 auto;
+    top: 330px;
+  }
+  .maingo {
+    position: absolute;
+    width: 1320px;
+    height: 408px;
+    left: 50%;
+    background: #0004fc;
+    transform: translate(-50.23%, 0);
+    border-radius: 25px;
+  }
+  .midis {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 60px;
+    top: 6px;
+    left: 46px;
+    color: #ffffff;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 60px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 7;
+  }
+  .balls1 {
+    position: absolute;
+    width: 14.29%;
+    height: 39.99%;
+    top: 1.96%;
+    left: 76.32%;
+    background: url(./assets/images/6312cfb6-dacf-4d7d-8357-abcb8b8c54d4.png)
+      no-repeat center;
+    background-size: 100% 100%;
+    z-index: 5;
+  }
+  .want-apply-1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 63px;
+    top: 106px;
+    left: calc(50% - 219px);
+    color: #ffffff;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 63px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 8;
+  }
+  .specialty-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 45px;
+    top: 181px;
+    left: 348px;
+    color: #ffffff;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 44.8px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  .bubbles {
+    position: absolute;
+    width: 14.29%;
+    height: 39.99%;
+    top: 58.82%;
+    left: 5.43%;
+    background: url(./assets/images/09f334fb-0b84-400d-80c1-daebd8e9b644.png)
+      no-repeat center;
+    background-size: 100% 100%;
+    z-index: 6;
+  }
+  .rectangle-knopka {
+    position: absolute;
+    width: 262px;
+    height: 56px;
+    top: 259px;
+    left: 371px;
+    cursor: pointer;
+    background: #ffffff;
+    border: none;
+    z-index: 1;
+    border-radius: 15px;
+  }
+  .rectangle-knopka2 {
+    position: absolute;
+    width: 262px;
+    height: 56px;
+    top: 259px;
+    left: 670px;
+    cursor: pointer;
+    background: #ffffff;
+    border: none;
+    z-index: 3;
+    border-radius: 15px;
+  }
+  .college14 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 45px;
+    top: 264px;
+    left: 472px;
+    color: #0004fc;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 44.8px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 2;
+  }
+  .institute-12 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 45px;
+    top: 264px;
+    left: 764px;
+    color: #0004fc;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 44.8px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 4;
+  }
+  .it {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 60px;
+    top: 338px;
+    left: 1158px;
+    color: #ffffff;
+    font-family: Rubik, var(--default-font-family);
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 60px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 9;
+  }
+  .footer {
+    position: relative;
+    width: 1920px;
+    height: 415px;
+    top: 406px;
+    margin: 0 auto;
+  }
+  .flex-row-a {
+    position: relative;
+    width: 525.882px;
+    height: 20.5px;
+    margin: 36.98px 0 0 966px;
+    z-index: 21;
+  }
+  .achievements {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 19px;
+    top: 0;
+    left: 0;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 7;
+  }
+  .applicants {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 19.5px;
+    top: 1px;
+    left: 220px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 15;
+  }
+  .students {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 19.5px;
+    top: 1px;
+    left: 440px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 21;
+  }
+  .flex-row-e {
+    position: relative;
+    width: 1188.04px;
+    height: 48.86px;
+    margin: 64.5px 0 0 207px;
+    z-index: 18;
+  }
+  .about-us {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 19px;
+    top: 0;
+    left: 759px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  .design-service-institute {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    width: 213px;
+    height: 35px;
+    top: 5.02px;
+    left: 0;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+    z-index: 1;
+  }
+  .web-design-prep-courses {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    width: 209.04px;
+    height: 30.59px;
+    top: 18.27px;
+    left: 979px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15.6px;
+    text-align: left;
+    z-index: 18;
+  }
+  .contacts {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 19px;
+    top: 28px;
+    left: 759px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 11;
+  }
+  .chelyabinsk-voroshilova-street {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    width: 245px;
+    height: 30px;
+    margin: 9.16px 0 0 207px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14.4px;
+    text-align: left;
+    z-index: 2;
+  }
+  .phone-number {
+    display: block;
+    position: relative;
+    height: 14px;
+    margin: 10px 0 0 207px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 4;
+  }
+  .programs {
+    display: block;
+    position: relative;
+    height: 19.5px;
+    margin: -6.08px 0 0 966px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 12;
+  }
+  .info-email {
+    display: block;
+    position: relative;
+    height: 14px;
+    margin: 7.58px 0 0 207px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 6;
+  }
+  .bachelor-degree1 {
+    display: block;
+    position: relative;
+    height: 15px;
+    margin: -4.6px 0 0 966px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 13;
+  }
+  .college12 {
+    display: block;
+    position: relative;
+    height: 15px;
+    margin: 11.6px 0 0 966px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 14;
+  }
+  .lunar-kd {
+    display: block;
+    position: relative;
+    height: 14px;
+    margin: 34px 0 0 207px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 5;
+  }
+  .flex-row-x {
+    position: absolute;
+    width: 72.47%;
+    height: 11.33%;
+    top: 15.42%;
+    left: 10.82%;
+    z-index: 19;
+  }
+  .events {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 19px;
+    top: 0;
+    left: 758.325px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 8;
+  }
+  .how-to {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 15px;
+    top: 7.49px;
+    left: 978.325px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 16;
+  }
+  .electronic-information-environment {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    width: 193.09px;
+    height: 30.59px;
+    top: 7.49px;
+    left: 1198.325px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15.6px;
+    text-align: left;
+    z-index: 19;
+  }
+  .group {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    background: url(./assets/images/d5301910-1877-4d1a-8da6-74b287dd016f.png)
+      no-repeat center;
+    background-size: 100% 100%;
+  }
+  .student-life {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 19px;
+    top: 28px;
+    left: 758.325px;
+    color: #303030;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 9;
+  }
+  .flex-row-1 {
+    position: absolute;
+    width: 385.688px;
+    height: 30.59px;
+    top: 97.06px;
+    left: 1186px;
+    z-index: 20;
+  }

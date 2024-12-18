@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кафедра математики и информатики</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+
+<header>
+  <div class="main">
+    <div class="Header">
+        <img class="midimg" src="img/logo.svg" alt="" width="163" height="33" />
+        <img src="image/Иконка меню.svg" alt="" class="ico"/>
+        <p class="midinfo">Международный институт<br />дизайна и сервиса</p>
+        <div class="Abit"><a href="" class="underline-one">Абитуриенту</a></div>
+        <div class="sved"><a href="" class="underline-one">Сведения об образовательной организации</a></div>
+        <p><a href="+7 (351) 202-00-73">+7 (351) 202-00-73</a></p>
+    </div>
+</header>
+
+<body>
+  <div>
+    <div class="kondmain">
+      <div class="main-container">
+        <div class="tashqaridagisi">
+          <div class="flex-row-ae">
+            <span class="o-nas">О нас</span><span class="kontakty">Контакты</span>
+          </div>
+          <div class="flex-row-bd">
+            <div class="balls"></div>
+            <div class="ellipse"></div>
+          </div>
+        </div>
+        <div class="rectangle"></div>
+        <span class="bachelor-degree">Бакалавриат</span
+        ><span class="how-to-apply">Как поступить</span
+        ><span class="cost">Стоимость</span><span class="college">Колледж</span
+        ><span class="distance-learning">Заочное</span>
+        <div class="pic"></div>
+        <span class="departments">Кафедры</span><span class="main-1">Главная</span
+        ><span class="mathematics-informatics">Математика и информатика</span>
+        <div class="vector"></div>
+        <div class="vector-2"></div>
+        <span class="math-info">Кафедра математики<br />и информатики</span
+        ><span class="info-math"
+          >Кафедра информатики и математики является одной из ключевых структурных
+          единиц нашего университета, обеспечивающей подготовку
+          высококвалифицированных специалистов в области информационных
+          технологий.</span
+        ><button class="rectangle-3">
+          <span class="institute1">Институт</span></button
+        ><button class="rectangle-button">
+          <span class="college-span">Колледж</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="kondakov">
+    <span class="head-of-department-1">Заведующий кафедрой</span>
+    <div class="head-of-department-square">
+      <div class="b"></div>
+      <div class="flex-column-bf">
+        <span class="sergey-kondakov">Кондаков Сергей<br>Александрович</span
+        ><span class="math-info-dept"
+          >Заведующий кафедрой математики<br />и информатики</span
+        ><button onclick="window.location.href = '#openModal'" class="rectangle-4">
+          <span class="detailed-info">Подробная информация</span>
+        </button>
+        <div id="openModal" class="modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title">Подброная информация</h3>
+                <a href="#close" title="Close" class="close">XXX</a>
+              </div>
+              <div class="modal-body">    
+              <p>123123</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var scrollbar = document.body.clientWidth - window.innerWidth + 'px';
+          console.log(scrollbar);
+          document.querySelector('[href="#openModal"]').addEventListener('click', function () {
+            document.body.style.overflow = 'hidden';
+            document.querySelector('#openModal').style.marginLeft = scrollbar;
+          });
+          document.querySelector('[href="#close"]').addEventListener('click', function () {
+            document.body.style.overflow = 'visible';
+            document.querySelector('#openModal').style.marginLeft = '0px';
+          });
+        });
+      </script>
+    
+    </div>
+  </div>
+  <div class="prepodi">
+    <span class="teacher-staff-1">Преподовательский состав</span>
+    <div class="flex-row">
+      <div class="img"></div>
+      <div class="wp"></div>
+      <div class="pict"></div>
+      <div class="p-ash-pp-tn"></div>
+    </div>
+    <div class="flex-row-2">
+      <span class="ivinskaia-nl">Ивинская Н.Л</span
+      ><span class="pisarenko-iv">Писаренко И.В</span
+      ><span class="zavyalov-og"
+        >Завьялов<br />
+        О.Г.</span
+      ><span class="prilepina-ev">Прилепина Е.В.</span>
+    </div>
+    <div class="flex-row-aba">
+      <div class="frame"></div>
+      <div class="frame-3"></div>
+      <div class="frame-4"></div>
+      <div class="frame-5"></div>
+    </div>
+    <div class="flex-row-6">
+      <span class="sergei-chebotarev">Сергей Чеботарев</span
+      ><span class="larisa-ovsyanitskaya">Лариса Овсяницкая</span
+      ><span class="yulia-mukhina"
+        >Юлия<br />
+        Мухина</span
+      ><span class="liliya-hayatova">Лилия Хаятова</span>
+    </div>
+  </div>
+  <div class="go">
+    <div class="maingo"></div>
+    <span class="midis">MIDIS</span>
+    <div class="balls"></div>
+    <span class="want-apply-1">Хотите поступить?</span
+    ><span class="specialty-info"
+      >Можете ознакомиться со специальностями</span
+    >
+    <div class="bubbles"></div>
+    <a href="example.com" class="rectangle-knopka"></a
+    ><a href="example.com" class="rectangle-knopka2"></a>
+    <span class="college14">Колледж</a></span
+    ><span class="institute-12">Институт</span><span class="it">IT</span>
+  </div>
+  <div class="footer">
+    <div class="flex-row-a">
+    </div>
+    <div class="flex-row-e"><span class="design-service-institute"
+        >Международный Институт<br />Дизайна и Сервиса</span
+      >
+    </div>
+    <span class="chelyabinsk-voroshilova-street"
+      >г. Челябинск, ул. Ворошилова, 12</span
+    ><span class="phone-number">+7 (351) 202-00-73</span
+    ><span class="info-email">info@midis.ru</span
+    ><span class="lunar-kd">@lunark1d</span>
+    <div class="flex-row-x">
+
+      <a href="https://midis.ru"><img class="group" src="img/logo.svg" alt="" width="163" height="33" /></a>
+  </div>
+</body>
